@@ -42,8 +42,14 @@ class ReviewController < ApplicationController
 
     #ACTUALLY UPDATE REVIEW AND PROCESS
     patch '/reviews/:id' do
-        binding.pry
-
+        @review = Review.find_by(id: params[:id])
+        @review.name = params[:name]
+        @review.content = params[:content]
+        @review.rating = params[:rating]
+        @review.work_space = params[:work_space]
+        @review.neighborhood = params[:neighborhood]
+        @review.save
+        redirect to "/reviews/#{@review.id}"
     end
 
     #DELETE
