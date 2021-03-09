@@ -6,7 +6,9 @@
 ☐ Validate uniqueness of user login attribute (username or email).
 ✔ Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user @done (3/9/2021, 4:41:24 PM)
 ☐ Ensure that users can edit and delete only their own resources - not resources created by other users.
-☐ Validate user input so bad data cannot be persisted to the database.
+☐ Validate user input so bad data cannot be persisted to the database
+☐ add links to each review from reviews/index
+✔ add logout link to /reviews/index @done (3/9/2021, 6:41:33 PM)
 
 if time allows:
 ☐ add flash for messaging
