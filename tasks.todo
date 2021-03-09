@@ -1,8 +1,13 @@
-☐ finish CRUD actions in review controller
-☐ corresponding erb's
-☐ working on edge cases
-☐ add flash for messaging
-☐ work on some styling, html and css
+✔ finish CRUD actions in review controller @done (3/9/2021, 4:38:28 PM)
+✔ corresponding erb's @done (3/9/2021, 4:38:37 PM)
 ✔ add new column for neighborhood @done (3/9/2021, 2:22:29 PM)
 ✔ add logout link throughout pages @done (3/9/2021, 4:17:27 PM)
 ✔ change rows in new form to 2 @done (3/9/2021, 4:08:34 PM)
+☐ Validate uniqueness of user login attribute (username or email).
+✔ Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user @done (3/9/2021, 4:41:24 PM)
+☐ Ensure that users can edit and delete only their own resources - not resources created by other users.
+☐ Validate user input so bad data cannot be persisted to the database.
+
+if time allows:
+☐ add flash for messaging
+☐ work on some styling, html and css
