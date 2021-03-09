@@ -16,7 +16,6 @@ class ReviewController < ApplicationController
     
     #READ ALL
     get '/reviews' do 
-        "we made it to reviewssss"
         # @reviews = Review.all
         # erb :'/reviews/index'
     end
