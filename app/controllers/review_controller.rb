@@ -14,15 +14,15 @@ class ReviewController < ApplicationController
        redirect to "/reviews/#{@review.id}"
     end
     
-    #READ ALL
+    #READ ALL reviews belonging to user
     get '/reviews' do 
-        # @reviews = Review.all
-        # erb :'/reviews/index'
+        @reviews = current_user.reviews
+        erb :'/reviews/index'
     end
 
     #read specific review
     get '/reviews/:id' do 
-        "here we are"
+        @review = Review.find_by(id: session[:user_id])
     end
 
     #RENDERS EDIT PAGE FOR SPECIFIC REVIEW

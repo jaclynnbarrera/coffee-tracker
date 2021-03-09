@@ -1,3 +1,13 @@
 <h3>Hi <%=current_user.username%>!</h3><br>
 
-<p>Here's a list of your favorite coffee shops:</p>
+<p>Here's a list of your coffee shop reviews:</p>
+<br>
+<%@reviews.each do |review|%>
+<div>
+    <p>Name of Coffee Shop: <%=review.name%><p>
+    <p>Neighborhood: <%=review.neighborhood%><p>
+    <p>Rating (1-5): <%=review.rating%><p>
+    <p>Short Review: <%=review.content%><p>
+    <p>Space to Work? <%=review.work_space%><p>
+</div>
+<%end%>
