@@ -8,8 +8,10 @@ class ReviewController < ApplicationController
         end
     end
 
+    #processes form input and creates new review object
     post '/reviews' do 
-        binding.pry
+       @review = Review.create(:name=>params[:name], :rating=> params[:rating], :content => params[:content],:work_space => params[:work_space], :user_id => current_user.id)
+       redirect to "/reviews/#{@review.id}"
     end
     
     #READ ALL
@@ -21,6 +23,7 @@ class ReviewController < ApplicationController
 
     #read specific review
     get '/reviews/:id' do 
+        "here we are"
     end
 
     #RENDERS EDIT PAGE FOR SPECIFIC REVIEW
