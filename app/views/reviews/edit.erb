@@ -1,0 +1,31 @@
+<h3>Edit Review For <%=@review.name%><h3>
+
+<form action="/reviews/<%=@review.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+        <p>Name of Shop: <input type='text' name="name" value="<%=@review.name%>"></p>
+        <p>Neighborhood: <input type='text' name="neighborhood" value="<%=@review.neighborhood%>"></p>
+        <p>
+        Rating:
+        <select name="rating">
+        <option value="N/A">N/A</option>
+        <option value="1">1 star</option>
+        <option value="2">2 stars</option>
+        <option value="3">3 stars</option>
+        <option value="4">4 stars</option>
+        <option value="5">5 stars</option>
+        </select>
+        </p>
+        <p>
+        <b>Description:</b><br>
+        <textarea rows="2" cols="50" name="content"><%=@review.content%></textarea>
+        </p>
+        <p>
+        <b>Space to Work?:</b>
+        <select name="work_space">
+        <option value="N/A">N/A</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select>
+        </p>
+    <input type='submit' value='Save this review'>
+</form>

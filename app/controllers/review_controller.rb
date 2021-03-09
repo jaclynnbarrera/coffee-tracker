@@ -30,15 +30,22 @@ class ReviewController < ApplicationController
         end
     end
 
-    #RENDERS EDIT PAGE FOR SPECIFIC REVIEW
+    #UPDATE
     get '/reviews/:id/edit' do 
+        @review = Review.find_by(id: params[:id])
+        if @review.user_id == session[:user_id]
+            erb :'reviews/edit'
+        else
+            redirect to '/reviews'
+        end
     end
 
     #ACTUALLY UPDATE REVIEW AND PROCESS
     patch '/reviews/:id' do
+        binding.pry
 
     end
 
-    #DELTE
+    #DELETE
 
 end
