@@ -1,17 +1,18 @@
 class UserController < ApplicationController
     
-    #sign up
+    #renders signup form
     get '/signup' do
         if !logged_in?
             erb :'user/create_user'
-          else
+        else
             redirect to '/reviews'
         end
     end
 
+    #processess input, creates and saves
     post '/signup' do
-        if logged_in?
-            redirect to '/reviews'
+        if params[:username] == "" || params[:email] == "" || params[:password] == ""
+            redirect to '/signup'
         else
             @user = User.new(:username => params[:username], :password => params[:password]) 
             @user.save
@@ -20,8 +21,22 @@ class UserController < ApplicationController
         end
     end
 
-    #login
     get '/login' do
+        if !logged_in?
+            erb :'user/login'
+        else
+            redirect to '/reviews'
+        end
+    end
+
+    post '/login' do
+        user = User.find_by(:username => params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect to '/reviews'
+        else
+            redirect to '/signup'
+        end
     end
 
     #logout
