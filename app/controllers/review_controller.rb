@@ -1,6 +1,7 @@
 class ReviewController < ApplicationController
+    
     get '/reviews' do 
-        "we made it to reviewsss"
-        puts params
+        @reviews = Review.all
+        erb :'/reviews/index'
     end
 end
