@@ -1,6 +1,5 @@
 class UserController < ApplicationController
     
-    #renders signup form
     get '/signup' do
         if !logged_in?
             erb :'user/create_user'
@@ -9,7 +8,6 @@ class UserController < ApplicationController
         end
     end
 
-    #processess input, creates and saves
     post '/signup' do
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
             redirect to '/signup'
@@ -39,7 +37,6 @@ class UserController < ApplicationController
         end
     end
 
-    #logout
     get '/logout' do
         session.clear
         redirect to '/login'
