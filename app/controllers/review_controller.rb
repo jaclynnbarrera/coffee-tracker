@@ -22,7 +22,12 @@ class ReviewController < ApplicationController
 
     #read specific review
     get '/reviews/:id' do 
-        @review = Review.find_by(id: session[:user_id])
+        @review = Review.find_by(id: params[:id])
+        if @review.user_id == session[:user_id]
+            erb :'reviews/show'
+        else
+            redirect to '/reviews'
+        end
     end
 
     #RENDERS EDIT PAGE FOR SPECIFIC REVIEW
