@@ -3,11 +3,12 @@
 ✔ add new column for neighborhood @done (3/9/2021, 2:22:29 PM)
 ✔ add logout link throughout pages @done (3/9/2021, 4:17:27 PM)
 ✔ change rows in new form to 2 @done (3/9/2021, 4:08:34 PM)
-☐ Validate uniqueness of user login attribute (username or email).
+✔ Validate uniqueness of user login attribute (username or email) @done (3/9/2021, 6:48:34 PM)
 ✔ Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user @done (3/9/2021, 4:41:24 PM)
 ☐ Ensure that users can edit and delete only their own resources - not resources created by other users.
 ☐ Validate user input so bad data cannot be persisted to the database
 ☐ add links to each review from reviews/index
+☐ add link to create new review from all reviews index
 ✔ add logout link to /reviews/index @done (3/9/2021, 6:41:33 PM)
 
 if time allows:

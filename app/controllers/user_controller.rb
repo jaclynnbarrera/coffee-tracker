@@ -14,9 +14,9 @@ class UserController < ApplicationController
         elsif params[:username] == "" || params[:email] == "" || params[:password] == ""
             redirect to '/signup'
         else
-            @user = User.new(:username => params[:username], :password => params[:password]) 
-            @user.save
-            session[:user_id] = @user.id
+            user = User.new(:username => params[:username], :password => params[:password]) 
+            user.save
+            session[:user_id] = user.id
             redirect to '/reviews'
         end
     end
@@ -30,9 +30,9 @@ class UserController < ApplicationController
     end
 
     post '/login' do
-        @user = User.find_by(:username => params[:username])
+        user = User.find_by(:username => params[:username])
         if user && user.authenticate(params[:password])
-            session[:user_id] = @user.id
+            session[:user_id] = user.id
             redirect to '/reviews'
         else
             redirect to '/login'

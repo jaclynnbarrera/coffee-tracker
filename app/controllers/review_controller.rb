@@ -1,5 +1,5 @@
 class ReviewController < ApplicationController
-    #CREATE
+
     get '/reviews/new' do 
         if logged_in?
             erb :'reviews/new'
@@ -8,19 +8,20 @@ class ReviewController < ApplicationController
         end
     end
 
-    #processes form input and creates new review object
     post '/reviews' do 
-       @review = Review.create(:name=>params[:name], :neighborhood => params[:neighborhood], :rating=> params[:rating], :content => params[:content],:work_space => params[:work_space], :user_id => current_user.id)
-       redirect to "/reviews/#{@review.id}"
+        if params[:name] == "" || params[:rating] == "" || params[:neighborhood] == "" || params[:content] == "" || params[:work_space] == ""
+            redirect to '/reviews/new'
+        else
+            @review = Review.create(:name=>params[:name], :neighborhood => params[:neighborhood], :rating=> params[:rating], :content => params[:content],:work_space => params[:work_space], :user_id => current_user.id)
+            redirect to "/reviews/#{@review.id}"
+        end
     end
     
-    #READ ALL reviews belonging to user
     get '/reviews' do 
         @reviews = current_user.reviews
         erb :'/reviews/index'
     end
 
-    #read specific review
     get '/reviews/:id' do 
         @review = Review.find_by(id: params[:id])
         if @review.user_id == session[:user_id]
@@ -30,7 +31,6 @@ class ReviewController < ApplicationController
         end
     end
 
-    #UPDATE
     get '/reviews/:id/edit' do 
         @review = Review.find_by(id: params[:id])
         if @review.user_id == session[:user_id]
@@ -40,7 +40,6 @@ class ReviewController < ApplicationController
         end
     end
 
-    #ACTUALLY UPDATE REVIEW AND PROCESS
     patch '/reviews/:id' do
         @review = Review.find_by(id: params[:id])
         @review.name = params[:name]
@@ -52,7 +51,6 @@ class ReviewController < ApplicationController
         redirect to "/reviews/#{@review.id}"
     end
 
-    #DELETE
     delete '/reviews/:id/delete' do
         @review = Review.find_by(id: params[:id])
         if @review.user_id == session[:user_id]
