@@ -3,7 +3,7 @@
 
 ### Introduction
 
-Sinatra CRUD app for Tracking Favorite Coffee Shops
+Sinatra CRUD app for tracking Favorite Coffee Shops
 
 ### Installation
 
