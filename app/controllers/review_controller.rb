@@ -18,8 +18,12 @@ class ReviewController < ApplicationController
     end
     
     get '/reviews' do 
-        @reviews = current_user.reviews
-        erb :'/reviews/index'
+        if logged_in?
+            @reviews = current_user.reviews
+            erb :'/reviews/index'
+        else
+            redirect to '/login'
+        end
     end
 
     get '/reviews/:id' do 
