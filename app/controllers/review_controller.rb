@@ -27,39 +27,55 @@ class ReviewController < ApplicationController
     end
 
     get '/reviews/:id' do 
-        @review = Review.find_by(id: params[:id])
-        if @review.user_id == session[:user_id]
+        if logged_in?
+            @review = Review.find_by(id: params[:id])
+            if @review.user_id == session[:user_id]
             erb :'reviews/show'
-        else
+            else
             redirect to '/reviews'
+            end
+        else
+            redirect to '/login'
         end
     end
 
     get '/reviews/:id/edit' do 
-        @review = Review.find_by(id: params[:id])
-        if @review.user_id == session[:user_id]
+        if logged_in?
+            @review = Review.find_by(id: params[:id])
+            if @review.user_id == session[:user_id]
             erb :'reviews/edit'
-        else
+            else
             redirect to '/reviews'
+            end
+        else
+            redirect to '/login'
         end
     end
 
     patch '/reviews/:id' do
-        @review = Review.find_by(id: params[:id])
-        @review.name = params[:name]
-        @review.content = params[:content]
-        @review.rating = params[:rating]
-        @review.work_space = params[:work_space]
-        @review.neighborhood = params[:neighborhood]
-        @review.save
-        redirect to "/reviews/#{@review.id}"
+        if params[:name] == "" || params[:rating] == "" || params[:neighborhood] == "" || params[:content] == "" || params[:work_space] == ""
+            redirect to '/reviews/#{params[:id]}/edit'
+        else
+            @review = Review.find_by(id: params[:id])
+            @review.name = params[:name]
+            @review.content = params[:content]
+            @review.rating = params[:rating]
+            @review.work_space = params[:work_space]
+            @review.neighborhood = params[:neighborhood]
+            @review.save
+            redirect to "/reviews/#{@review.id}"
+        end
     end
 
     delete '/reviews/:id/delete' do
-        @review = Review.find_by(id: params[:id])
-        if @review.user_id == session[:user_id]
-            @review.delete
-            redirect to '/reviews'
+        if logged_in?
+            @review = Review.find_by(id: params[:id])
+            if @review.user_id == session[:user_id]
+                @review.delete
+                redirect to '/reviews'
+            end
+        else
+            redirect to '/login'
         end
     end
 
