@@ -5,12 +5,18 @@
 ✔ change rows in new form to 2 @done (3/9/2021, 4:08:34 PM)
 ✔ Validate uniqueness of user login attribute (username or email) @done (3/9/2021, 6:48:34 PM)
 ✔ Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user @done (3/9/2021, 4:41:24 PM)
-☐ Ensure that users can edit and delete only their own resources - not resources created by other users.
-☐ Validate user input so bad data cannot be persisted to the database
-☐ add links to each review from reviews/index
+✔ Ensure that users can edit and delete only their own resources - not resources created by other users @done (3/9/2021, 7:27:49 PM)
+✔ Validate user input so bad data cannot be persisted to the database @done (3/9/2021, 7:27:54 PM)
 ✔ add link to create new review from all reviews index @done (3/9/2021, 7:15:34 PM)
 ✔ add logout link to /reviews/index @done (3/9/2021, 6:41:33 PM)
+✔ add link to each individ review page from all reviews index @done (3/9/2021, 8:47:50 PM)
+ ☐ add spec.md file to repo and fill in
+ ☐ readme
+ ☐ short video
+ ☐ blog post
+ 
 
 if time allows:
 ☐ add flash for messaging
 ☐ work on some styling, html and css
+☐ add short app description to homepage

@@ -1,7 +1,7 @@
 <h3><%=@review.name%></h3>
 
 <p>Neighborhood: <%=@review.neighborhood%></p>
-<p>Rating: <%=@review.rating%></p>
+<p>Rating: <%=@review.rating%> Stars</p>
 <p>Review: <%=@review.content%></p>
 <p>Has Work Space?: <%=@review.work_space%></p>
 
@@ -10,6 +10,6 @@
   <input type="submit" value="Delete This Review">
 </form>
 <br>
-<p><a href='/reviews/<%=@review.id%>/edit'>Edit this Movie Review</a></p>
-<p><a href='/reviews'>See all of the reviews</a></p>
+<p><a href='/reviews/<%=@review.id%>/edit'>Edit this Coffee Shop Review</a></p>
+<p><a href='/reviews'>See all of my reviews</a></p>
 <p><a href='/logout'>Log Out</a></p>

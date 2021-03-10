@@ -23,7 +23,7 @@ class UserController < ApplicationController
 
     get '/login' do
         if !logged_in?
-            erb :'user/login'
+            erb :'user/create_user'
         else
             redirect to '/reviews'
         end

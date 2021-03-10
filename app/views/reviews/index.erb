@@ -1,16 +1,18 @@
 <h3>Hi <%=current_user.username%>!</h3><br>
 
-<p>Here's a list of your coffee shop reviews:</p>
-<br>
+<h3>Here's a list of your coffee shop reviews:</h3>
+
 <%@reviews.each do |review|%>
 <div>
-    <p>Name of Coffee Shop: <%=review.name%><p>
+    <h3><%=review.name%></h3>
     <p>Neighborhood: <%=review.neighborhood%><p>
-    <p>Rating (1-5): <%=review.rating%><p>
+    <p>Rating (1-5): <%=review.rating%> Stars<p>
     <p>Short Review: <%=review.content%><p>
     <p>Space to Work? <%=review.work_space%><p>
+    <p><a href="/reviews/<%=review.id%>"> View</a></p>
+
 </div>
 <%end%>
 
-<p><a href="/reviews/new"> Add another Coffee Review to your list </a></p>
+<p><a href="/reviews/new"> Add a new coffee review </a></p>
 <p><a href='/logout'>Log Out</a></p>
